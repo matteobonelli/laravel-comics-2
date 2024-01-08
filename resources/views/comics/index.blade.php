@@ -18,7 +18,8 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center">
-            <button class="btn text-uppercase ">Load more</button>
+            <button class="btn text-uppercase me-4">Load more</button>
+            <a href="{{route('comics.create')}}"><button class="btn text-uppercase ">Create</button></a>
         </div>
     </div>
     
