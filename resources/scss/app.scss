@@ -206,3 +206,15 @@ $fa-font-path: "../webfonts" !default;
         }
     }
 }
+
+textarea {
+    height: 200px;
+}
+
+.dc-color {
+    color: $brand_primary !important;
+}
+
+.create-container {
+    max-width: 1000px;
+}
