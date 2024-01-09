@@ -6,6 +6,10 @@
 <main class="bg-dark " id='comics'>
     <div class="container main-content py-5">
         <div class="btn current-series text-uppercase text-light">Current series</div>
+        @if (session()->has('message'))
+        <div class="alert alert-success">{{session('message')}}</div>
+        @endif
+        
         <div class="row">
             @foreach ($comics as $comic)
             <div class="col-12 col-md-2 mb-4">
@@ -13,13 +17,18 @@
                     <img src="{{$comic->thumb}}" :alt="{{$comic->title}}" class="mb-3">
                 <h5 class="text-uppercase text-light">{{ $comic->series }}</h5>
                 </a>
+                <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn text-uppercase w-50"> Delete</button>
+                </form>
                 
             </div>
             @endforeach
         </div>
         <div class="d-flex justify-content-center">
             <button class="btn text-uppercase me-4">Load more</button>
-            <a href="{{route('comics.create')}}"><button class="btn text-uppercase ">Create</button></a>
+            <a href="{{route('comics.create')}}"><button class="btn text-uppercase me-4">Create</button></a>
         </div>
     </div>
     
