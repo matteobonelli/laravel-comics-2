@@ -36,6 +36,14 @@
                     <h2>Tipologia</h2>
                     <input type="text" value="{{old('type', $comic->type)}}" id="type" name="type" placeholder="Inserisci una tipologia" class="form-control gy-3" required>
                 </div>
+                <div class="my-2">
+                    <h2>Sale Date</h2>
+                    <input type="text" value="{{old('sale_date', $comic->sale_date)}}" id="sale_date" name="sale_date" placeholder="Inserisci una tipologia" class="form-control gy-3" required>
+                </div>
+                <div class="my-2">
+                    <h2>Serie</h2>
+                    <input type="text" value="{{old('series', $comic->series)}}" id="series" name="series" placeholder="Inserisci una tipologia" class="form-control gy-3" required>
+                </div>
                 
     
                 <button type="submit" class="btn btn-light my-2">Invia</button>
