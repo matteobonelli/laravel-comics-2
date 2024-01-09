@@ -21,7 +21,7 @@
                 
             </div>
         </div>
-        <a href="{{route('comics.edit', $comic->id)}}"class="btn btn-primary me-4 mb-3">Modifica Prodotto</a>
+        <a href="{{route('comics.edit', $comic->id)}}"class="btn btn-primary me-4 mb-3">Modifica Fumetto</a>
         <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
             @csrf
             @method('DELETE')
