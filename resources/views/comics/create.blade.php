@@ -50,7 +50,7 @@
                 </div>
                 <div class="my-2">
                     <h2>Sale Date</h2>
-                    <input type="date" id="sale_date" {{old('sale_date')}} name="sale_date" placeholder="Inserisci una data" class="form-control gy-3">
+                    <input type="date" id="sale_date" {{old('sale_date')}} name="sale_date" class="form-control gy-3">
                 </div>
                 <div class="my-2">
                     <h2>Serie</h2>

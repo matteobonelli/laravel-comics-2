@@ -15,7 +15,7 @@
                     {{$comic->description}}
                 </p>
                 <h4>
-                    {{$comic->price}} || {{$comic->type}} || {{$comic->sale_date}}
+                    {{$comic->price}}$ || {{$comic->type}} || {{$comic->sale_date}}
                 </h4>
                 
                 

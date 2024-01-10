@@ -48,7 +48,8 @@ class StoreComicRequest extends FormRequest
             'price.max' => 'Il campo prezzo deve avere massimo :max caratteri',
             'thumb.url' => 'Il campo immagine deve essere un url',
             'sale_date.date' => 'Il campo data deve essere in un formato valido',
-            'price.numeric' => 'Il campo prezzo deve essere un dato numerico'
+            'price.numeric' => 'Il campo prezzo deve essere un dato numerico',
+            'title.unique' => 'Il titolo è stato già inserito'
         ];
     }
 }
