@@ -25,7 +25,7 @@
             <div class="col-12 col-md-2 mb-4">
                 <a href="{{route('comics.show', $comic->id)}}">
                     <img src="{{$comic->thumb}}" :alt="{{$comic->title}}" class="mb-3">
-                <h5 class="text-uppercase text-light">{{ $comic->series }}</h5>
+                <h5 class="text-uppercase text-light">{{ $comic->title }}</h5>
                 </a>
                 <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
                     @csrf
