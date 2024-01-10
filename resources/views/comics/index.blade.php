@@ -6,14 +6,18 @@
 <main class="bg-dark " id='comics'>
     <div class="container main-content py-5">
         <div class="btn current-series text-uppercase text-light">Current series</div>
-        <div>
-            <form action="{{route('comics.index')}}" method="GET" class="d-flex my-4">
-                <select name="search" id="search" class="gy-3">
+        <div class="d-flex justify-content-between my-4">
+            <form action="{{route('comics.index')}}" method="GET" class="d-flex">
+                <select name="select" id="select" class="gy-3 select-control">
                     <option value="">All</option>
                     <option value="comic book">Comic Book</option>
                     <option value="graphic novel">Graphic Novel</option>
                 </select>
-                <button type="submit" class="btn bnt-danger ms-3">Cerca</button>
+                <button type="submit" class="btn btn-outline-success ms-3 w-100">Cerca</button>
+            </form>
+            <form action="{{route('comics.index')}}" method="GET" class="d-flex" role="search">
+                <input class="me-3 w-100 form-control" type="search" name="search" id="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Cerca</button>
             </form>
         </div>
         @if (session()->has('message'))

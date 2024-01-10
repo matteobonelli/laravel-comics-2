@@ -19,10 +19,13 @@ class ComicController extends Controller
     public function index(Request $request)
     {
         //dd($request->query());
-        if (!empty($request->query('search'))) {
-            $search = $request->query('search');
+        if (!empty($request->query('select'))) {
+            $search = $request->query('select');
             $comics = Comic::where('type', $search)->get();
 
+        } else if (!empty($request->query('search'))) {
+            $search = $request->query('search');
+            $comics = Comic::where('title', 'LIKE', "%{$search}%")->get();
         } else {
             $comics = Comic::all();
         }
