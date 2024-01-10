@@ -8,7 +8,7 @@
         <div class="btn current-series text-uppercase text-light">Current series</div>
         <div class="d-flex justify-content-between my-4">
             <form action="{{route('comics.index')}}" method="GET" class="d-flex">
-                <select name="select" id="select" class="gy-3 select-control">
+                <select name="select" id="select" class="gy-3 form-select">
                     <option value="">All</option>
                     <option value="comic book">Comic Book</option>
                     <option value="graphic novel">Graphic Novel</option>
@@ -16,7 +16,7 @@
                 <button type="submit" class="btn btn-outline-success ms-3 w-100">Cerca</button>
             </form>
             <form action="{{route('comics.index')}}" method="GET" class="d-flex" role="search">
-                <input class="me-3 w-100 form-control" type="search" name="search" id="search" placeholder="Search" aria-label="Search">
+                <input class="me-3 w-100 form-control" type="search" name="search" id="search" placeholder="Cerca" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Cerca</button>
             </form>
         </div>
