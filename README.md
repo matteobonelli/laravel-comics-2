@@ -93,8 +93,15 @@ Route::get('/books', [BookController::class, 'index'])->name('books.index');
 # creo controller
 php artisan make:controller NomeController
 
+#posso creare il model e contestualmente resource controller, migration, seeder e form request per validazioni
+php artisan make:model Nome -rcms --request
 
 # creo le views relative
+
+#creo from request per validazione
+php artisan make:request StoreNomemodelRequest
+
+
 
 ```
 xmas

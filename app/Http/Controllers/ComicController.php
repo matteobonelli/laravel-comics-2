@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Models\Comic;
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 
 class ComicController extends Controller
 {
@@ -13,9 +16,17 @@ class ComicController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        $comics = Comic::all();
+        //dd($request->query());
+        if (!empty($request->query('search'))) {
+            $search = $request->query('search');
+            $comics = Comic::where('type', $search)->get();
+
+        } else {
+            $comics = Comic::all();
+        }
+
         return view("comics.index", compact("comics"));
     }
 
@@ -36,23 +47,10 @@ class ComicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      *
      */
-    public function store(Request $request)
+    public function store(StoreComicRequest $request)
     {
-        //prendo i dati del form e dalla request
-        $request->validate([
-            'title' => 'required|min:5|max:255|unique:comics',
-            'type' => 'required|max:30',
-            'series' => 'required|max:100',
-            'price' => 'required|max:20',
-        ]);
 
-        $form_data = $request->all();
-        //creo un nuovo prodotto
-        //$newComic = new Comic();
-        //assegno i valori del form al nuovo prodotto
-        //$newComic->fill($form_data);
-        //salvo il nuovo prodotto
-        //$newComic->save();
+        $form_data = $request->validated();
         $newComic = Comic::create($form_data);
         //reindirizzo l'utente alla pagina del nuovo prodotto appena creato
         return to_route('comics.show', $newComic->id);
@@ -88,16 +86,10 @@ class ComicController extends Controller
      * @param  int  $id
      * 
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
-        $form_data = $request->all();
-        // $comic->title = $form_data['title'];
-        // $comic->description = $form_data['description'];
-        // $comic->thumb = $form_data['thumb'];
-        // $comic->price = $form_data['price'];
-        // $comic->type = $form_data['type'];
-        // $comic->sale_date = '2020-01-08';
-        // $comic->series = 'Pupazzi';
+
+        $form_data = $request->validated();
         $comic->fill($form_data);
         $comic->update();
         return to_route('comics.show', $comic->id);
@@ -114,4 +106,5 @@ class ComicController extends Controller
         $comic->delete();
         return to_route('comics.index')->with('message', "Il fumetto $comic->title è stato eliminato");
     }
+
 }

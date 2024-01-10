@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12">
                 
-                <img src="{{$comic->thumb}}" :alt="{{$comic->title}}" class="mb-3">
+                <img src="{{$comic->thumb}}" :alt="{{$comic->title}}" class="mb-3 w-25">
                 <h2 class="text-uppercase text-light">{{ $comic->title }}</h2>
                 <h5 class="text-uppercase text-light">{{ $comic->series }}</h5>
                 <p>
